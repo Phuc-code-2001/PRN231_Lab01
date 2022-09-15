@@ -15,6 +15,7 @@ namespace BusinessObjects.DataContext
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionBuilder)
         {
+            Console.WriteLine(Directory.GetDirectoryRoot(Directory.GetCurrentDirectory()));
             var builder = new ConfigurationBuilder()
             .SetBasePath(Directory.GetCurrentDirectory())
             .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
