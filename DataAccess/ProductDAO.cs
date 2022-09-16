@@ -1,5 +1,6 @@
 ﻿using BusinessObjects.DataContext;
 using BusinessObjects.Domain;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,7 @@ namespace DataAccess
             {
                 using(var context = new ApplicationDBContext())
                 {
-                    return context.Products.ToList();
+                    return context.Products.Include(p => p.Category).ToList();
                 }
             }
             catch(Exception ex)
@@ -31,7 +32,7 @@ namespace DataAccess
             {
                 using (var context = new ApplicationDBContext())
                 {
-                    return context.Products.FirstOrDefault(p => p.Id == Id);
+                    return context.Products.Include(p => p.Category).FirstOrDefault(p => p.Id == Id);
                 }
             }
             catch (Exception ex)

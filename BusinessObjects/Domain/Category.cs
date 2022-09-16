@@ -16,6 +16,6 @@ namespace BusinessObjects.Domain
         [StringLength(40)]
         public string Name { get; set; }
 
-        public virtual IList<Product> Products { get; set; }
+        // public virtual IList<Product> Products { get; set; }
     }
 }
