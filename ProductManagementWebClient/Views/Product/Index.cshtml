@@ -1,0 +1,42 @@
+﻿@using BusinessObjects.Domain
+@{
+	ViewData["Title"] = "Product Index";
+}
+
+@model IEnumerable<Product>
+
+<h1>Index</h1>
+
+<p>
+	<a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+
+<table class="table table-bordered">
+
+	<thead>
+		<tr>
+			<th>Product Id</th>
+			<th>Name</th>
+			<th>Category</th>
+			<th>UnitPrice</th>
+			<th>RUD</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+		   <tr>
+			   <td>@item.Id</td>
+			   <td>@item.Name</td>
+			   <td>@item.Category.Name</td>
+			   <td>@item.UnitPrice</td>
+			   <td>
+				   <a class="btn btn-info" asp-action="Detail" asp-route-id="@item.Id">Detail</a>
+				   <a class="btn btn-info" asp-action="Detail" asp-route-id="@item.Id">Update</a>
+				   <a class="btn btn-info" asp-action="Detail" asp-route-id="@item.Id">Info</a>
+			   </td>
+		   </tr>
+		}
+	</tbody>
+
+</table>
